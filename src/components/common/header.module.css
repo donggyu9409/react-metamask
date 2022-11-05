@@ -17,11 +17,15 @@
 .title {
   font-size: 1.5rem;
   font-weight: 600;
+  color: #000;
+  text-decoration: none;
 }
 
 .menu {
   font-size: 0.875rem;
   font-weight: 700;
+  color: #000;
+  text-decoration: none;
   background-color: rgba(0, 0, 0, 0);
   border: none;
   cursor: pointer;
