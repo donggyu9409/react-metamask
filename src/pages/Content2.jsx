@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useRef } from "react";
 import Header from "../components/common/Header";
 import styles from "./styles/content.module.css";
 import styled from "styled-components";
 import ContentImg from "../assets/content2.jpeg";
+import { useWeb3React } from "@web3-react/core";
+import { sendTransaction } from "../lib/contract";
 
 const ImageContainer = styled.div`
   width: 100%;
@@ -14,6 +16,10 @@ const ImageContainer = styled.div`
 `;
 
 function Content2() {
+  const valueRef = useRef(0);
+  const contractAddress = "0xf608bbA390b058C1493eff5e3477dD086754dbE6";
+  const { account, active } = useWeb3React();
+
   return (
     <>
       <Header />
@@ -30,9 +36,12 @@ function Content2() {
               type="text"
               placeholder="금액입력"
               className={styles.inputArea}
+              ref={valueRef}
             />
-            <button type="button" className={styles.donateBtn}>
-              기부하기
+            <button type="button" className={styles.donateBtn} onClick={() => {
+              sendTransaction(account, contractAddress, parseFloat(valueRef.current.value))
+            }}>
+              {active ? "기부하기": "메타마스크 로그인 필요"}
             </button>
             <div className={styles.totalAmount}>
               <span>
