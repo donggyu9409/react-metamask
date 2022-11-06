@@ -38,17 +38,19 @@ function Content1() {
               className={styles.inputArea}
               ref={valueRef}
             />
-            <button type="button" className={styles.donateBtn} onClick={() => {
-              sendTransaction(account, contractAddress, parseFloat(valueRef.current.value))
-            }}>
-              {active ? "기부하기": "메타마스크 로그인 필요"}
+            <button
+              type="button"
+              className={styles.donateBtn}
+              onClick={() => {
+                sendTransaction(
+                  account,
+                  contractAddress,
+                  parseFloat(valueRef.current.value)
+                );
+              }}
+            >
+              {active ? "기부하기" : "메타마스크 로그인 필요"}
             </button>
-            <div className={styles.totalAmount}>
-              <span>
-                <b>현재까지 모금된 이더: </b>
-              </span>
-              <span>0 ETH</span>
-            </div>
           </div>
         </div>
       </div>
