@@ -15,8 +15,6 @@ function Header() {
       });
     } catch (err) {}
   };
-
-  console.log(active);
   return (
     <div className={styles.headerContainer}>
       <div className={styles.innerContainer}>
